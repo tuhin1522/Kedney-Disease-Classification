@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: cnnClassifier
+Version: 0.0.1
+Summary: A small package for Kidney Disease Classification
+Home-page: https://github.com/tuhin1522/Kidney_Disease_Classification
+Author: tuhin1522
+Author-email: mdtuhin1499@gmail.com
+Project-URL: Bug Tracker, https://github.com/tuhin1522/Kidney_Disease_Classification/issues
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
