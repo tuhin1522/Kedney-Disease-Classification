@@ -68,7 +68,8 @@ class ConfigurationManager:
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
             params_is_augmentation=params.AUGMENTATION,
-            params_image_size=params.IMAGE_SIZE
+            params_image_size=params.IMAGE_SIZE,
+            params_learning_rate=params.LEARNING_RATE
         )
 
         return training_config
@@ -76,7 +77,7 @@ class ConfigurationManager:
     def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
             path_of_model="artifacts/training/model.h5",
-            training_data="artifacts/data_ingestion/kidney-ct-scan-image",
+            training_data="artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone",
             mlflow_uri="https://dagshub.com/entbappy/Kidney-Disease-Classification-MLflow-DVC.mlflow",
             all_params=self.params,
             params_image_size=self.params.IMAGE_SIZE,

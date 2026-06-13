@@ -16,6 +16,13 @@ class Training:
         self.model = tf.keras.models.load_model(
             self.config.updated_base_model_path
         )
+        # Recompile with a fresh optimizer to avoid "Unknown variable" error
+        # that occurs when the saved optimizer state references stale variables.
+        self.model.compile(
+            optimizer=tf.keras.optimizers.SGD(learning_rate=self.config.params_learning_rate),
+            loss=tf.keras.losses.CategoricalCrossentropy(),
+            metrics=["accuracy"]
+        )
 
     def train_valid_generator(self):
 
