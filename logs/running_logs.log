@@ -216,3 +216,113 @@ x==========x]
 [2026-06-14 04:36:04,995: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
 
 x==========x]
+[2026-06-14 16:24:19,257: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-06-14 16:24:19,259: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 16:24:19,260: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 16:24:19,260: INFO: common: Directory created at: artifacts]
+[2026-06-14 16:24:19,260: INFO: common: Directory created at: artifacts/data_ingestion]
+[2026-06-14 16:24:19,260: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1WSK-5rF2zvIf3x7YudZqlH5pegDIJAwF/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-06-14 16:25:56,211: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-06-14 16:25:56,212: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 16:25:56,213: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 16:25:56,213: INFO: common: Directory created at: artifacts]
+[2026-06-14 16:25:56,213: INFO: common: Directory created at: artifacts/data_ingestion]
+[2026-06-14 16:25:56,213: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1WSK-5rF2zvIf3x7YudZqlH5pegDIJAwF/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-06-14 16:27:53,820: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-06-14 16:27:53,821: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 16:27:53,822: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 16:27:53,822: INFO: common: Directory created at: artifacts]
+[2026-06-14 16:27:53,822: INFO: common: Directory created at: artifacts/data_ingestion]
+[2026-06-14 16:27:53,822: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1WSK-5rF2zvIf3x7YudZqlH5pegDIJAwF/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-06-14 16:30:08,223: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-06-14 16:30:08,224: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 16:30:08,225: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 16:30:08,225: INFO: common: Directory created at: artifacts]
+[2026-06-14 16:30:08,225: INFO: common: Directory created at: artifacts/data_ingestion]
+[2026-06-14 16:30:08,225: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1WSK-5rF2zvIf3x7YudZqlH5pegDIJAwF/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-06-14 16:42:29,382: ERROR: stage_01_data_ingestion: ('Connection broken: IncompleteRead(20257324 bytes read, 1606671996 more expected)', IncompleteRead(20257324 bytes read, 1606671996 more expected))]
+Traceback (most recent call last):
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(20257324 bytes read, 1606671996 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(20257324 bytes read, 1606671996 more expected)', IncompleteRead(20257324 bytes read, 1606671996 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tuhin/Kedney-Disease-Classification/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 22, in <module>
+    obj.main()
+  File "/home/tuhin/Kedney-Disease-Classification/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/home/tuhin/Kedney-Disease-Classification/src/cnnClassifier/components/data_ingestion.py", line 31, in download_file
+    raise e
+  File "/home/tuhin/Kedney-Disease-Classification/src/cnnClassifier/components/data_ingestion.py", line 26, in download_file
+    gdown.download(prefix+file_id, str(zip_download_dir))  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/gdown/download.py", line 421, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+  File "/home/tuhin/Kedney-Disease-Classification/venv/lib/python3.12/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(20257324 bytes read, 1606671996 more expected)', IncompleteRead(20257324 bytes read, 1606671996 more expected))
+[2026-06-14 16:46:07,205: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-06-14 16:46:07,206: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 16:46:07,206: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 16:46:07,207: INFO: common: Directory created at: artifacts]
+[2026-06-14 16:46:07,207: INFO: common: Directory created at: artifacts/data_ingestion]
+[2026-06-14 16:46:07,207: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1WSK-5rF2zvIf3x7YudZqlH5pegDIJAwF/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-06-14 17:11:17,118: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1WSK-5rF2zvIf3x7YudZqlH5pegDIJAwF/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-06-14 17:11:25,768: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-06-14 17:11:41,484: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model Stage started <<<<<]
+[2026-06-14 17:11:41,485: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 17:11:41,486: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 17:11:41,486: INFO: common: Directory created at: artifacts]
+[2026-06-14 17:11:41,488: INFO: common: Directory created at: artifacts/prepare_base_model]
+[2026-06-14 17:11:41,847: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-14 17:11:41,981: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-14 17:11:42,099: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model Stage completed <<<<<
+
+x==========x]
+[2026-06-14 17:11:48,239: INFO: stage_03_model_training: *******************]
+[2026-06-14 17:11:48,239: INFO: stage_03_model_training: >>>>>> stage Training started <<<<<<]
+[2026-06-14 17:11:48,240: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 17:11:48,241: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 17:11:48,242: INFO: common: Directory created at: artifacts]
+[2026-06-14 17:11:48,343: INFO: common: Directory created at: artifacts/training]
+[2026-06-14 17:11:48,596: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-14 17:43:55,302: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-14 17:43:55,477: INFO: stage_03_model_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2026-06-14 17:44:05,777: INFO: stage_04_model_evaluation: *******************]
+[2026-06-14 17:44:05,778: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2026-06-14 17:44:05,779: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-06-14 17:44:05,780: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-14 17:44:05,780: INFO: common: Directory created at: artifacts]
+[2026-06-14 17:44:06,048: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-14 17:52:37,498: INFO: common: JSON file saved at: scores.json]
+[2026-06-14 17:52:37,498: INFO: common: JSON file saved at: scores.json]
+[2026-06-14 17:52:37,499: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
